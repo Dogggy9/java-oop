@@ -2,11 +2,11 @@ package academy.devonline.java.structures;
 
 import java.util.Arrays;
 
-public class DynaArray {
+public class DynaArray extends BaseDataStructure{
 
     private int[] result;
 
-    private int count;
+//    private int count;
 
     public DynaArray() {
 
@@ -40,6 +40,10 @@ public class DynaArray {
         }
         System.arraycopy(array, 0, result, count, length);
         count += length;
+    }
+
+    public void add(LinkedList list) {
+        add(list.toArray());
     }
 
     private void grow(int newLength) {
@@ -93,10 +97,6 @@ public class DynaArray {
             }
         }
         return -1;
-    }
-
-    public int size() {
-        return count;
     }
 
     public boolean contains(int value) {

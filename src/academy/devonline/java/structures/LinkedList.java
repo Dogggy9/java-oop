@@ -16,13 +16,13 @@
 
 package academy.devonline.java.structures;
 
-public class LinkedList {
+public class LinkedList  extends BaseDataStructure{
 
     private Item first;
 
     private Item last;
 
-    private int count;
+//    private int count;
 
     public void add(int value) {
         Item item = new Item(value);
@@ -43,18 +43,31 @@ public class LinkedList {
 
     public void add(DynaArray dynaArray) {
         add(dynaArray.toArray());
+    }
 
+    public void add(LinkedList list) {
+        if (list.count > 0) {
+            if (last != null) {
+                last.next = list.first;
+            } else {
+                first = list.first;
+            }
+            last = list.last;
+            count += list.count;
+
+        }
     }
 
 
     public int[] toArray() {
-        DynaArray dynaArray = new DynaArray();
+        int[] array = new int[count];
+        int index = 0;
         Item current = first;
         while (current != null) {
-            dynaArray.add(current.value);
+            array[index++] = current.value;
             current = current.next;
         }
-        return dynaArray.toArray();
+        return array;
     }
 
     public String asString() {
@@ -68,10 +81,6 @@ public class LinkedList {
             current = current.next;
         }
         return builder.append(']').toString();
-    }
-
-    public int size() {
-        return count;
     }
 
     public void clear() {
@@ -117,7 +126,7 @@ public class LinkedList {
     public boolean contains(int value) {
         Item current = first;
         while (current != null) {
-            if (current.value==value){
+            if (current.value == value) {
                 return true;
             }
             current = current.next;
