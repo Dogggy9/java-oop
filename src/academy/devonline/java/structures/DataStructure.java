@@ -18,16 +18,23 @@ package academy.devonline.java.structures;
 
 import java.util.Arrays;
 
-class LinkedListTest {
-    public static void main(String[] args) {
-        LinkedList secondList = new LinkedList();
-        secondList.add(new int[]{4, 5, 6});
+public interface DataStructure {
 
-        LinkedList list = new LinkedList();
-        list.add(new int[]{1, 2, 3});
-        list.add(secondList);
-        list.add(4);
+    void add(int value);
 
-        System.out.println(list);
-    }
+    void add(int[] array);
+
+    void add(DynaArray dynaArray);
+
+    void add(LinkedList list);
+
+    int size();
+
+    void clear();
+
+    boolean contains(int value);
+
+    boolean remove(int value);
+
+    int[] toArray();
 }

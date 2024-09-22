@@ -2,11 +2,9 @@ package academy.devonline.java.structures;
 
 import java.util.Arrays;
 
-public class DynaArray extends BaseDataStructure{
+public final class DynaArray extends BaseDataStructure {
 
     private int[] result;
-
-//    private int count;
 
     public DynaArray() {
 
@@ -18,6 +16,7 @@ public class DynaArray extends BaseDataStructure{
         result = new int[size];
     }
 
+    @Override
     public void add(int value) {
         if (count == result.length) {
             grow(result.length == 0 ? 5 : result.length * 2);
@@ -25,10 +24,12 @@ public class DynaArray extends BaseDataStructure{
         result[count++] = value;
     }
 
+    @Override
     public void add(int[] array) {
         add(array, array.length);
     }
 
+    @Override
     public void add(DynaArray dynaArray) {
 
         add(dynaArray.result, dynaArray.count);
@@ -42,22 +43,20 @@ public class DynaArray extends BaseDataStructure{
         count += length;
     }
 
-    public void add(LinkedList list) {
-        add(list.toArray());
-    }
-
     private void grow(int newLength) {
         int[] newArray = new int[newLength];
         if (count >= 0) System.arraycopy(result, 0, newArray, 0, count);
         result = newArray;
     }
 
+    @Override
     public int[] toArray() {
 
         return Arrays.copyOf(result, count);
     }
 
-    public String asString() {
+    @Override
+    public String toString() {
         final StringBuilder stringBuilder = new StringBuilder().append("[");
         for (int i = 0; i < count; i++) {
             stringBuilder.append(result[i]);
@@ -69,16 +68,14 @@ public class DynaArray extends BaseDataStructure{
         return stringBuilder.toString();
     }
 
-    public void clear() {
-        count = 0;
-    }
-
-    public void remove(int value) {
+    @Override
+    public boolean remove(int value) {
         int index = indexOf(value);
         if (index != -1) {
             removeByIndex(index);
+            return true;
         }
-
+        return false;
     }
 
     private void removeByIndex(int index) {
@@ -99,6 +96,7 @@ public class DynaArray extends BaseDataStructure{
         return -1;
     }
 
+    @Override
     public boolean contains(int value) {
         return indexOf(value) >= 0;
 

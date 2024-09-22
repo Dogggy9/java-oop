@@ -16,10 +16,33 @@
 
 package academy.devonline.java.structures;
 
-public class BaseDataStructure {
-    int count;
+public abstract class BaseDataStructure implements DataStructure {
+    protected int count;
 
-    public int size(){
+    @Override
+    public void add(int[] array) {
+        for (int j : array) {
+            add(j);
+        }
+    }
+
+    @Override
+    public void add(DynaArray dynaArray) {
+        add(dynaArray.toArray());
+    }
+
+    @Override
+    public void add(LinkedList list){
+        add(list.toArray());
+    }
+
+    @Override
+    public final int size(){
         return count;
+    }
+
+    @Override
+    public void clear() {
+        count = 0;
     }
 }

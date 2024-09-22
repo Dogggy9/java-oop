@@ -14,20 +14,23 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section031_polymorphism;
 
-import java.util.Arrays;
+public class SumCalculator {
 
-class LinkedListTest {
+    private static long sum(ArrayElementsProvider arrayElementsProvider){
+        long sum=0;
+        while (arrayElementsProvider.hasMoreElements()){
+            sum+=arrayElementsProvider.nextElement();
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
-        LinkedList secondList = new LinkedList();
-        secondList.add(new int[]{4, 5, 6});
 
-        LinkedList list = new LinkedList();
-        list.add(new int[]{1, 2, 3});
-        list.add(secondList);
-        list.add(4);
+        ArrayElementsProvider arrayElementsProvider = new FromRAMArrayElementsProvider(new int[]{1,2,3,4,5});
+        System.out.println(sum(arrayElementsProvider));
+        System.out.println(sum(new FromClassPathResourceArrayElementsProvider("data.txt")));
 
-        System.out.println(list);
     }
 }

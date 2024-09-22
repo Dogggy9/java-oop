@@ -14,20 +14,25 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section031_polymorphism;
 
-import java.util.Arrays;
+public class FromRAMArrayElementsProvider implements ArrayElementsProvider {
 
-class LinkedListTest {
-    public static void main(String[] args) {
-        LinkedList secondList = new LinkedList();
-        secondList.add(new int[]{4, 5, 6});
+    private int[] array;
 
-        LinkedList list = new LinkedList();
-        list.add(new int[]{1, 2, 3});
-        list.add(secondList);
-        list.add(4);
+    private int index;
 
-        System.out.println(list);
+    public FromRAMArrayElementsProvider(int[] array) {
+        this.array = array;
+    }
+
+    @Override
+    public boolean hasMoreElements() {
+        return index < array.length;
+    }
+
+    @Override
+    public int nextElement() {
+        return array[index++];
     }
 }

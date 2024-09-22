@@ -14,20 +14,24 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section031_polymorphism;
 
-import java.util.Arrays;
-
-class LinkedListTest {
+public class StaticTyping {
     public static void main(String[] args) {
-        LinkedList secondList = new LinkedList();
-        secondList.add(new int[]{4, 5, 6});
+        int i1 = 12;
+//        int i2 = true;
 
-        LinkedList list = new LinkedList();
-        list.add(new int[]{1, 2, 3});
-        list.add(secondList);
-        list.add(4);
+        A a = new A();
+        B b = new B();
 
-        System.out.println(list);
+//        A a2 = new B();
+//        B b2 = new A();
+
+    }
+
+    private static class A {
+    }
+
+    private static class B {
     }
 }

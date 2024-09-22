@@ -8,7 +8,7 @@ public class Solution {
 
         DynaArray result = getPositiveNumbers(array);
 
-        System.out.println(result.asString());
+        System.out.println(result.toString());
     }
 
     private static DynaArray getPositiveNumbers(int[] array) {

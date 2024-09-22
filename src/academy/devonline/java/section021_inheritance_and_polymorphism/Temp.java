@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section021_inheritance_and_polymorphism;
 
-import java.util.Arrays;
+public class Temp {
 
-class LinkedListTest {
+    int field;
+
+    void doSomething(){
+        System.out.println("doSomething");
+    }
+
     public static void main(String[] args) {
-        LinkedList secondList = new LinkedList();
-        secondList.add(new int[]{4, 5, 6});
-
-        LinkedList list = new LinkedList();
-        list.add(new int[]{1, 2, 3});
-        list.add(secondList);
-        list.add(4);
-
-        System.out.println(list);
+        Temp obj = new Temp();
+        System.out.println(obj.field);
+        obj.doSomething();
     }
 }

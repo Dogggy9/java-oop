@@ -16,14 +16,13 @@
 
 package academy.devonline.java.structures;
 
-public class LinkedList  extends BaseDataStructure{
+public class LinkedList extends BaseDataStructure {
 
     private Item first;
 
     private Item last;
 
-//    private int count;
-
+    @Override
     public void add(int value) {
         Item item = new Item(value);
         count++;
@@ -35,16 +34,7 @@ public class LinkedList  extends BaseDataStructure{
         }
     }
 
-    public void add(int[] array) {
-        for (int j : array) {
-            add(j);
-        }
-    }
-
-    public void add(DynaArray dynaArray) {
-        add(dynaArray.toArray());
-    }
-
+    @Override
     public void add(LinkedList list) {
         if (list.count > 0) {
             if (last != null) {
@@ -59,6 +49,7 @@ public class LinkedList  extends BaseDataStructure{
     }
 
 
+    @Override
     public int[] toArray() {
         int[] array = new int[count];
         int index = 0;
@@ -70,7 +61,8 @@ public class LinkedList  extends BaseDataStructure{
         return array;
     }
 
-    public String asString() {
+    @Override
+    public String toString() {
         StringBuilder builder = new StringBuilder().append('[');
         Item current = first;
         while (current != null) {
@@ -83,11 +75,14 @@ public class LinkedList  extends BaseDataStructure{
         return builder.append(']').toString();
     }
 
+    @Override
     public void clear() {
-        count = 0;
+        super.clear();
         first = null;
+        last = null;
     }
 
+    @Override
     public boolean remove(int value) {
         Pair pair = findPair(value);
         if (pair != null) {
@@ -105,7 +100,6 @@ public class LinkedList  extends BaseDataStructure{
             count--;
             return true;
         }
-
         return false;
     }
 
@@ -123,6 +117,7 @@ public class LinkedList  extends BaseDataStructure{
         return null;
     }
 
+    @Override
     public boolean contains(int value) {
         Item current = first;
         while (current != null) {
@@ -145,6 +140,7 @@ public class LinkedList  extends BaseDataStructure{
             this.current = current;
         }
     }
+
 
     /**
      * @author doggy
