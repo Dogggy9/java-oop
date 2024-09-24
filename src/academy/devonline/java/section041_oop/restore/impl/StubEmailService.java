@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section041_oop.restore.impl;
 
-public interface DataStorage {
+import academy.devonline.java.section041_oop.restore.EmailService;
 
-    void add(int value);
-
-    int get();
-
-    int size();
+public final class StubEmailService implements EmailService {
+    @Override
+    public void sendPasswordResetEmail(String email, String code) {
+        System.out.println("Send code=" + code + " to " + email + " email");
+    }
 }

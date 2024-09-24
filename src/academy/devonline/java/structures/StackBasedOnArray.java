@@ -16,11 +16,31 @@
 
 package academy.devonline.java.structures;
 
-public interface DataStorage {
+public final class StackBasedOnArray extends BasedOnArrayDataStorage {
 
-    void add(int value);
+    public StackBasedOnArray() {
+    }
 
-    int get();
+    public StackBasedOnArray(int size) {
+        super(size);
+    }
 
-    int size();
+    @Override
+    public int get(){
+        if (count > 0){
+            return array[--count];
+        }else {
+            throw new RuntimeException("Стэк пуст");
+        }
+    }
+
+//    @Override
+//    protected int getIfNotEmpty() {
+//        return array[--count];
+//    }
+//
+//    @Override
+//    protected RuntimeException createEmptyException() {
+//        return new RuntimeException("Стэк пуст");
+//    }
 }

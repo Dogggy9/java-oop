@@ -44,7 +44,6 @@ public class LinkedList extends BaseDataStructure {
             }
             last = list.last;
             count += list.count;
-
         }
     }
 

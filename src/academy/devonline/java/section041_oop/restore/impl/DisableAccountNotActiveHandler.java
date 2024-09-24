@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section041_oop.restore.impl;
 
-public interface DataStorage {
+import academy.devonline.java.section041_oop.restore.Account;
+import academy.devonline.java.section041_oop.restore.AccountNotActiveHandler;
 
-    void add(int value);
-
-    int get();
-
-    int size();
+public class DisableAccountNotActiveHandler implements AccountNotActiveHandler {
+    @Override
+    public final String handle(Account account) {
+        return null;
+    }
 }

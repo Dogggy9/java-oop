@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section041_oop.restore.impl;
 
-public interface DataStorage {
+import academy.devonline.java.section041_oop.restore.AccountNotFoundByEmailHandler;
 
-    void add(int value);
-
-    int get();
-
-    int size();
+public final class DisplayAccountNotFoundByEmailHandler implements AccountNotFoundByEmailHandler {
+    @Override
+    public String handle(String email) {
+        return "account not found.html?email=" + email;
+    }
 }

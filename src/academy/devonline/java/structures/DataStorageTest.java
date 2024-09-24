@@ -16,11 +16,25 @@
 
 package academy.devonline.java.structures;
 
-public interface DataStorage {
+public class DataStorageTest {
+    public static void main(String[] args) {
 
-    void add(int value);
+        DataStorage dataStorage = new StackBasedOnLinkedList(); // new Stack() or new Queue()
 
-    int get();
+        for (int i = 0; i < 5; i++) {
+            dataStorage.add(i);
+        }
 
-    int size();
+        //43210 - for stack
+        //01234 - for queue
+//        dataStorage.add(6);
+//        System.out.print(dataStorage.get() + " ");
+//        System.out.println();
+//        dataStorage.add(5);
+
+        while (dataStorage.size() > 0) {
+            System.out.print(dataStorage.get() + " ");
+        }
+        System.out.println();
+    }
 }

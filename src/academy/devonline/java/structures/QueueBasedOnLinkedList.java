@@ -16,11 +16,25 @@
 
 package academy.devonline.java.structures;
 
-public interface DataStorage {
+public final class QueueBasedOnLinkedList extends BasedOnLinkedListDataStorage {
 
-    void add(int value);
+    private Item last;
 
-    int get();
+    @Override
+    protected void addNextItem(Item item) {
+        if(last==null){
+            last = first;
+        }
+        last.next = item;
+        last = item;
+    }
 
-    int size();
+    @Override
+    public int get() {
+        int value =  super.get();
+        if (count == 0) {
+            last = null;
+        }
+        return value;
+    }
 }

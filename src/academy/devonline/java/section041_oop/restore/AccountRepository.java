@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section041_oop.restore;
 
-public interface DataStorage {
+public interface AccountRepository {
+    Account findByEmail(String email);
 
-    void add(int value);
-
-    int get();
-
-    int size();
+    void update(Account account);
 }

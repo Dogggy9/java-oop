@@ -16,11 +16,12 @@
 
 package academy.devonline.java.structures;
 
-public interface DataStorage {
+public abstract class BaseDataStorage implements DataStorage {
 
-    void add(int value);
+    protected int count;
 
-    int get();
-
-    int size();
+    @Override
+    public final int size() {
+        return count;
+    }
 }

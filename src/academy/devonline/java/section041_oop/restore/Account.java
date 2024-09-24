@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-package academy.devonline.java.structures;
+package academy.devonline.java.section041_oop.restore;
 
-public interface DataStorage {
+public interface Account {
 
-    void add(int value);
+    boolean isNotActive();
 
-    int get();
-
-    int size();
+    void setCode(String code);
 }

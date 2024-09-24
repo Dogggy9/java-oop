@@ -16,11 +16,12 @@
 
 package academy.devonline.java.structures;
 
-public interface DataStorage {
+public final class StackBasedOnLinkedList extends BasedOnLinkedListDataStorage {
 
-    void add(int value);
 
-    int get();
-
-    int size();
+    @Override
+    protected void addNextItem(Item item) {
+        item.next = first;
+        first = item;
+    }
 }
