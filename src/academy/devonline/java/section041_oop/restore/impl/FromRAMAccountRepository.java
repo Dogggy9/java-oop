@@ -21,7 +21,7 @@ import academy.devonline.java.section041_oop.restore.AccountRepository;
 
 public class FromRAMAccountRepository implements AccountRepository {
 
-    private DefaultAccount[] accounts = {
+    private final DefaultAccount[] accounts = {
             new DefaultAccount( "test1@gmail.com", true),
             new DefaultAccount( "test2@gmail.com", false)
     };
